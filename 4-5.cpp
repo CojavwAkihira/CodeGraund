@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 
 using namespace std;
 
@@ -72,18 +72,35 @@ public:
 	}
 };
 
-int main(void) {
-	int yy, mm, dd, y, m, d;
+int main(void){
+	int yy, mm, dd;
+
 	cin >> yy >> mm >> dd;
+
 	Date d1(yy, mm, dd);
-	d1.get(y, m, d);
-	if (y != 0 && m != 0 && d != 0) {
-		cout << yy << "”N" << mm << "ŒŽ" << dd << "“ú‚ªÝ’è‚³‚ê‚Ü‚µ‚½" << endl;
-		d1.next();
-		d1.get(yy, mm, dd);
-		cout << "ŽŸ‚Ì“ú‚Í" << yy << "”N" << mm << "ŒŽ" << dd << "“ú‚Å‚·" << endl;
-	}else{
-		cout << "³‚µ‚­Ý’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ" << endl;
+
+	d1.get(yy, mm, dd);
+	if (yy == 0 && mm == 0 && dd == 0) {
+		cout << "æ­£ã—ãè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“" << endl;
+		return 1;
 	}
+
+	cin >> yy >> mm >> dd;
+
+	Date d2(yy, mm, dd);
+
+	d2.get(yy, mm, dd);
+	if (yy == 0 && mm == 0 && dd == 0) {
+		cout << "æ­£ã—ãè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“" << endl;
+	return 1;
+	}
+
+	d1.get(yy, mm, dd);
+	cout << yy << "å¹´" << mm << "æœˆ" << dd << "æ—¥ã‹ã‚‰";
+
+	d2.get(yy, mm, dd);
+	cout << yy << "å¹´" << mm << "æœˆ" << dd << "æ—¥ã¾ã§ã¯";
+
+	cout << d2.sub(d1) << "æ—¥ã§ã™" << endl;
 	return 0;
-}
+}
